@@ -138,7 +138,7 @@ if __name__ == "__main__":
                 try:
                     jsonschema.validate(request.json, self.schema)
                 except jsonschema.exceptions.ValidationError as error:
-                    abort(Response(str(error), 400))
+                    return Response(str(error), 400)
                 return "Successfully validated", 200
             post.__doc__ = f"Validate '{component_name}' against the spec."
 
