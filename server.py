@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Provide API for validating Translator Interchange API messages."""
 
 import re
