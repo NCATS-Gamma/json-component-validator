@@ -6,6 +6,10 @@ import copy
 import argparse
 from urllib.request import urlopen
 import yaml
+try:
+    from yaml import CLoader as Loader
+except ImportError:
+    from yaml import Loader
 import jsonschema
 from flask import Flask, request, abort, Response
 from flask_restful import Api, Resource
@@ -73,7 +77,7 @@ if __name__ == "__main__":
             to_load = file_obj.read()
 
     # load spec from yaml string
-    spec = yaml.load(to_load)
+    spec = yaml.load(to_load, Loader=Loader)
 
     # get OpenAPI version
     if (spec.get('swagger', None) or spec.get('openapi')).startswith('2'):
