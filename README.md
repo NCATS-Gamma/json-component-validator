@@ -1,5 +1,14 @@
 # json-component-validator
 
+## Docker
+
+```
+docker run
+    --publish <PORT>:7071
+    covar/json-component-validator
+    <URL>
+```
+
 ## Installation
 
 It is recommended that you use a virtual environment. For example, using _conda_:
@@ -10,8 +19,8 @@ It is recommended that you use a virtual environment. For example, using _conda_
 
 ## Usage
 
-`python server.py --file <LOCAL FILE PATH> --port <PORT>`
+`python server.py --port <PORT> <LOCAL FILE PATH>`
 
 OR
 
-`python server.py --file <URL> --port <PORT>`
+`python server.py --port <PORT> <URL>`
