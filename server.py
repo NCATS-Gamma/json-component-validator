@@ -56,8 +56,8 @@ def swag_validate_schema(component_name):
 if __name__ == "__main__":
     # parse arguments
     parser = argparse.ArgumentParser(description='JSON Component Validation API')
-    parser.add_argument('--file', action="store", dest="file", default=None)
-    parser.add_argument('--port', action="store", dest="port", default=80, type=int)
+    parser.add_argument('file')
+    parser.add_argument('--port', action="store", dest="port", default=7071, type=int)
     args = parser.parse_args()
 
     # set up Flask
