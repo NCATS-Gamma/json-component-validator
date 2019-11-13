@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     # build validator API spec, minus endpoints
     template = {
-        'openapi': '3.0',
+        'openapi': '3.0.1',
         'info': {
             'description': f"Validation of components/definitions for '{spec['info']['title']}'",
             'title': 'JSON Component Validator',
@@ -114,7 +114,12 @@ if __name__ == "__main__":
         'title': "JSON Component Validator",
         'uiversion': 3
     }
-    swagger = Swagger(app, template=template)
+    swagger_config = Swagger.DEFAULT_CONFIG
+    swagger_config.update({
+        "swagger_ui": True,
+        "openapi": "3.0.1",
+    })
+    swagger = Swagger(app, template=template, config=swagger_config)
 
     # add an endpoint validating each component
     components = template['components']['schemas']
